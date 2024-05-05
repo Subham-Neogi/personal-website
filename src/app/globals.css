@@ -3,31 +3,172 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 58, 110, 165;
+  --background-taskbar-rgb: 212, 208, 200;
+  --deepbrown-rgb: 60, 40, 14;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-rgb));
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.bg-gray-taskbar{
+background: rgb(var(--background-taskbar-rgb));
+}
+
+#taskbar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0.05rem;
+  border-top-width: 0.05rem;
+  border-top-color: white;
+  padding: 0.1rem;
+}
+
+#start{
+  width: 4.2rem;
+  height: 1.2rem;
+  margin-right: 0.2rem;
+  border-left-width: 0.06rem;
+  border-top-width: 0.06rem;
+  border-left-color: white;
+  border-top-color: white;
+  border-right-width: 0.1rem;
+  border-bottom-width: 0.1rem;
+  border-right-color: rgb(var(--deepbrown-rgb));
+  border-bottom-color: rgb(var(--deepbrown-rgb));
+  position: relative;
+}
+
+#start-pressed{
+  width: 4.2rem;
+  height: 1.2rem;
+  margin-right: 0.2rem;
+  border-left-width: 0.1rem;
+  border-top-width: 0.1rem;
+  border-left-color: rgb(var(--deepbrown-rgb));
+  border-top-color: rgb(var(--deepbrown-rgb));
+  border-right-width: 0.06rem;
+  border-bottom-width: 0.06rem;
+  border-right-color: white;
+  border-bottom-color: white;
+  position: relative;
+}
+
+#tray{
+  width: 4.2rem;
+  height: 1.2rem;
+  margin-right: 0.2rem;
+  position: relative;
+  pointer-events: none;
+}
+
+#minimized-windows{
+  width: 100%;
+  height: 1.2rem;
+}
+
+#minimized{
+  width: 8rem;
+  height: 1.2rem;
+  padding: 0.2rem;
+  margin-right: 0.2rem;
+  border-left-width: 0.1rem;
+  border-top-width: 0.1rem;
+  border-left-color: rgb(var(--deepbrown-rgb));
+  border-top-color: rgb(var(--deepbrown-rgb));
+  border-right-width: 0.06rem;
+  border-bottom-width: 0.06rem;
+  border-right-color: white;
+  border-bottom-color: white;
+  position: relative;
+  pointer-events: none;
+  background-color: lightgray;
+  font-weight: bolder;
+  font-size: 80%;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+#clock{
+  width: 4.2rem;
+  height: 1.2rem;
+  padding: 0.2rem;
+  border-left-width: 0.06rem;
+  border-top-width: 0.06rem;
+  border-left-color: gray;
+  border-top-color: gray;
+  border-right-width: 0.1rem;
+  border-bottom-width: 0.1rem;
+  border-right-color: white;
+  border-bottom-color: white;
+  position: relative;
+  font-size: 70%;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#desktop{
+  display: grid;
+  grid-template-columns: [first] 6rem [second] auto [third] 15rem [end];
+}
+
+#applications{
+  width: 4rem;
+  height: 25rem;
+  position: relative;
+  padding: 0.5rem;
+  pointer-events: none;
+}
+
+#browser{
+  display: grid;
+  grid-template-rows: [first] 7rem [second] auto [third] 4rem [end];
+}
+
+#browser-head{
+  margin-left: 8%;
+  width: 59.9rem;
+  height: 100%;
+  position: relative;
+  pointer-events: none;
+}
+
+#browser-window{
+  margin-left: 8%;
+  width: 58.57rem;
+  border-color: rgb(var(--background-taskbar-rgb));
+  border-width: 0.2rem;
+  box-shadow:  rgba(var(--deepbrown-rgb), 0.60) 1.95px 1.95px 2.6px;
+  position: relative;
+}
+
+#browser-foot{
+  margin-left: 8%;
+  width: 60.1rem;
+  height: 50%;
+  position: relative;
+  pointer-events: none;
+}
+
+.window{
+  height:29.6rem;
+  color: black;
+  background-color: white;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+@layer base {
+  html {
+    font-family: Tahoma;
+    font-weight: 400;
+    src: url(/fonts/Tahoma.woff) format("woff");
   }
 }
